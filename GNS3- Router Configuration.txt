@@ -1,0 +1,63 @@
+
+Three kinds of modes:
+1. User Mode
+2. Privelaged Mode
+3. Global Mode
+
+IOS Commands- Internetworking Operating System - Software that runs on all routers 
+
+enable - enter privelaged mode
+disable- exit privelaged mode
+
+show ip interface - current status of all the interfaces and their configurations
+
+## Setting up the Router:
+
+conf t - opens the configuration window
+int fa0/0 - configuring the fast Ethernet interface 0/0
+ip address
+no shut
+
+## Setting up the Console Password:
+
+line con 0
+password cisco
+login
+
+## Setting up telnet password
+
+line vty 0 4
+enable password/secret cisco
+login
+
+
+NOTE: Password set using enable secret overrides the password set using enable password
+
+
+## SETTING UP RIP Protocol after the configuration of a router:
+(In config mode)
+router rip
+version 2
+network 20.1.1.0
+network 100.1.1.0
+
+=> Complete RIP commands for each router and then use ==== show rip route ==== for verfification - PING SHOULD BE SUCCESSFUL!
+
+
+## DHCP Configuration:
+
+conf t
+ip dhcp pool ipranges
+network (network address) (subnet mask)
+dns-server (ip address)
+default-router (ip address)
+lease 10 (set ip lease for 10 days)
+ip dhcp excluded-address (starting) (ending) [ excludes all ip address between start and end]
+
+
+==== Set up all interfaces of all routers and virtual machines ====
+
+
+show ip dhcp binding (To test the setting up of all the PCs)
+
+-----------
